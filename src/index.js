@@ -3,6 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import produce from 'immer';
+
+/* Break IE 11 */
+(produce((draft) => {
+  return draft.hash = '#';
+}, window.location))();
+/* End of Break IE 11 */
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
